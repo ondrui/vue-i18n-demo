@@ -26,6 +26,9 @@ export default {
 };
 </script>
 <style scoped>
+ul {
+  padding: 0;
+}
 li {
   list-style-type: none;
   text-decoration: underline;
