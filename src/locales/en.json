@@ -1,6 +1,13 @@
 {
-  "main": {
-    "welcome": "Hello from {company}!"
+  "menu": {
+    "home": "Home",
+    "about": "About"
   },
-  "new_message": "no_messages | one message | {count} messages"
+  "main": {
+    "welcome": "Hello from {company}!",
+    "new_message": "no_messages | one message | {count} messages"
+  },
+  "about": {
+    "welcome": "Welcome to the About page!"
+  }
 }
