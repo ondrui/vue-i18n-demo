@@ -1,8 +1,8 @@
 <template>
   <div id="nav">
-    <router-link :to="{ name: 'Home', params: {locale: this.$i18n.locale}}">{{ $t('menu.home') }}</router-link>
+    <router-link :to="$i18nRoute({ name: 'Home'})">{{ $t('menu.home') }}</router-link>
     <br>
-    <router-link :to="{ name: 'About', params: {locale: this.$i18n.locale}}">{{ $t('menu.about') }}</router-link>
+    <router-link :to="$i18nRoute({ name: 'About'})">{{ $t('menu.about') }}</router-link>
 
   </div>
 </template>

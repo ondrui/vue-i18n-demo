@@ -1,25 +1,30 @@
 <template>
   <ul>
-    <li v-for="locale in locales" :key="locale" @click="switchLocale(locale)">
+    <li
+      v-for="locale in supportedLocales"
+      :key="locale"
+      @click="switchLocale(locale)"
+    >
       {{ locale }}
     </li>
   </ul>
 </template>
 <script>
+import { Trans } from "@/plugins/Translation";
+
 export default {
   name: "LocaleSwitcher",
-  data() {
-    return {
-      locales: process.env.VUE_APP_I18N_SUPPORTED_LOCALE.split(","),
-    };
+  computed: {
+    supportedLocales() {
+      return Trans.supportedLocales;
+    },
   },
   methods: {
-    switchLocale(locale) {
+    async switchLocale(locale) {
       if (this.$i18n.locale !== locale) {
-        this.$i18n.locale = locale;
         const to = this.$router.resolve({ params: { locale } });
-        console.log(to);
-        this.$router.push(to.location);
+        await Trans.changeLocale(locale);
+        this.$router.push(to.location).catch(() => {});
       }
     },
   },
